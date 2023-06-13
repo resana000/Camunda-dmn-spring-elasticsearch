@@ -1,7 +1,8 @@
 package com.example.controller;
 
 import com.example.business.DmnService;
-import com.example.model.OrganizationCheckDto;
+import com.example.model.OrganizationCheckRequest;
+import com.example.model.OrganizationCheckResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,9 +14,8 @@ public class DmnController {
     private final DmnService dmnService;
 
     @PostMapping(value = "/check")
-    @ResponseBody
-    public Iterable validate(
-            @RequestBody OrganizationCheckDto dto) {
+    public OrganizationCheckResponse validate(
+            @RequestBody OrganizationCheckRequest dto) {
         return dmnService.validateAndSave(dto);
     }
 

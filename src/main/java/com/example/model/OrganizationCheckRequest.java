@@ -7,9 +7,8 @@ import lombok.ToString;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
-public class OrganizationCheckDto {
+public class OrganizationCheckRequest {
      private boolean EGRULAddressFrod;
      private boolean inJuridicalDebtorsList;
      private boolean inInscrupuloursVedorsRegistry;

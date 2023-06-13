@@ -2,7 +2,8 @@ package com.example.service;
 
 import com.example.business.DmnService;
 import com.example.entity.CheckResult;
-import com.example.model.OrganizationCheckDto;
+import com.example.model.OrganizationCheckRequest;
+import com.example.model.OrganizationCheckResponse;
 import com.example.repository.CheckResultRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,14 +30,17 @@ public class DmnServiceImpl implements DmnService {
     private final DmnDecision userDecision;
 
     @Override
-    public Set<String> validateAndSave(OrganizationCheckDto dto) {
+    public OrganizationCheckResponse validateAndSave(OrganizationCheckRequest dto) {
         Set<String> failedFactors = runValidate(dto);
         checkResultRepository.save(new CheckResult(dto.toString(), new ArrayList<>(failedFactors)));
-        return failedFactors;
+        return new OrganizationCheckResponse(
+                failedFactors.isEmpty(),
+                failedFactors
+        );
     }
 
 
-    public Set<String>  runValidate(OrganizationCheckDto dto) {
+    public Set<String>  runValidate(OrganizationCheckRequest dto) {
         Map<String, Object> variableMap = new ObjectMapper().convertValue(dto, new TypeReference<Map<String, Object>>() {
                 });
 

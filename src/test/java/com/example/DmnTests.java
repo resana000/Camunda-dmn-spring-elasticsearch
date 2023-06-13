@@ -1,6 +1,6 @@
 package com.example;
 
-import com.example.model.OrganizationCheckDto;
+import com.example.model.OrganizationCheckRequest;
 import com.example.repository.CheckResultRepository;
 import com.example.service.DmnServiceImpl;
 import org.junit.Assert;
@@ -30,7 +30,7 @@ public class DmnTests {
 
     @Test
     public void testValidAllFactors() {
-        OrganizationCheckDto dto = new OrganizationCheckDto(
+        OrganizationCheckRequest dto = new OrganizationCheckRequest(
                 false, false, false, false, 49);
         Set<String> failedFactors = dmnService.runValidate(dto);
         Assert.assertTrue(failedFactors.size() == 0);
@@ -38,7 +38,7 @@ public class DmnTests {
 
     @Test
     public void testFailEGRULAddressFrod() {
-        OrganizationCheckDto dto = new OrganizationCheckDto(
+        OrganizationCheckRequest dto = new OrganizationCheckRequest(
                 true, false, false, false, 49);
         Set<String> failedFactors = dmnService.runValidate(dto);
         Assert.assertTrue(failedFactors.size() == 1);
@@ -47,7 +47,7 @@ public class DmnTests {
 
     @Test
     public void testFailEGRULAddressFrodAndContractPriceDowngradePercent() {
-        OrganizationCheckDto dto = new OrganizationCheckDto(
+        OrganizationCheckRequest dto = new OrganizationCheckRequest(
                 true, false, false, false, 70);
         Set<String> failedFactors = dmnService.runValidate(dto);
         Assert.assertTrue(failedFactors.size() == 2);
