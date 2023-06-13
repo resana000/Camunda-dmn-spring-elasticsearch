@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Profile;
 import org.springframework.test.annotation.IfProfileValue;
+import org.springframework.test.context.junit.jupiter.EnabledIf;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.testcontainers.elasticsearch.ElasticsearchContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -22,6 +23,7 @@ import java.util.List;
 @Slf4j
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@EnabledIf(value = "#{environment.getActiveProfiles()[0] == 'integration'}", loadContext = true)
 public class CheckResultRepositoryTest {
 
     @Container
