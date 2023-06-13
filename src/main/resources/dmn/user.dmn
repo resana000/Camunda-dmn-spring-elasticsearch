@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="Definitions_0hxbgwu" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <decision id="decision" name="user">
+    <decisionTable id="decisionTable" hitPolicy="COLLECT">
+      <input id="InputClause_1gh9nom" label="EGRULAddressFrod">
+        <inputExpression id="LiteralExpression_0ejttoq" typeRef="boolean">
+          <text>egruladdressFrod</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_134bixe" label="inJuridicalDebtorsList">
+        <inputExpression id="LiteralExpression_13g8wod" typeRef="boolean">
+          <text>inJuridicalDebtorsList</text>
+        </inputExpression>
+      </input>
+      <input id="input1" label="inInscrupuloursVedorsRegistry">
+        <inputExpression id="inputExpression1" typeRef="boolean">
+          <text>inInscrupuloursVedorsRegistry</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0lmcces" label="resident">
+        <inputExpression id="LiteralExpression_17ip1l2" typeRef="boolean">
+          <text>resident</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0oofsl2" label="contractPriceDowngradePercent">
+        <inputExpression id="LiteralExpression_1srjay5" typeRef="integer">
+          <text>contractPriceDowngradePercent</text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="EGRULAddressFrodFactor" name="EGRULAddressFrodFactor" typeRef="boolean" />
+      <output id="OutputClause_1gsh4ac" label="inJuridicalDebtorsListFactor" name="inJuridicalDebtorsListFactor" typeRef="boolean" />
+      <output id="OutputClause_1whyzle" label="inInscrupuloursVedorsRegistryFactor" name="inInscrupuloursVedorsRegistryFactor" typeRef="boolean" />
+      <output id="OutputClause_1kov2mi" name="residentFactor" typeRef="boolean" />
+      <output id="OutputClause_0bagf2o" label="contractPriceDowngradePercentFactor" name="contractPriceDowngradePercentFactor" typeRef="boolean" />
+      <output id="OutputClause_0tf4p1a" label="Default" name="default" typeRef="boolean" />
+      <rule id="row-746056994-1">
+        <description>Недостоверность сведений об адресе принципала в ЕГРЮЛ</description>
+        <inputEntry id="UnaryTests_1f8ntwu">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08ovvvs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12rz5k3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ljul8r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ez3weo">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g20e2v">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_129smxf">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0bkxzw7">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0otznpu">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1rdljtr">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_01bgjhv">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1alzu6b">
+        <description>Состояние расчетов по налогам: Клиент в списке юридических лиц, имеющих задолженность по уплате налогов и/или не представляющих налоговую отчетность более года, отсутствует; </description>
+        <inputEntry id="UnaryTests_1quy3oe">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ju1eq9">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ov50g9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p1sm6q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08s3x0z">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19r8en4">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1p29m3y">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0qvnphf">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0m7c7b2">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04e20tb">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dxhzaw">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1a65oyz">
+        <description>Клиент присутствует в Реестре недобросовестных поставщиков в Единой информационной системе в сфере закупок;</description>
+        <inputEntry id="UnaryTests_109rmio">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ql1rdb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bb7xuo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gvmm3n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ydn6y">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1e2s2px">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1pdqrfp">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0smwfkp">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0utn7y6">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0j0ckz0">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ek98ql">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nt0vfm">
+        <description>Клиент не является резидентом РФ;</description>
+        <inputEntry id="UnaryTests_0vee858">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ee0qha">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l8u6ph">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0l879sd">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07imhcs">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u4c195">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_114lg7e">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0pwlh81">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ym2imm">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cu8tyh">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0khztdy">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tzeixd">
+        <description>Снижение цены контракта от первоначальной - более 50 %</description>
+        <inputEntry id="UnaryTests_0ubku2l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15im2al">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pixrwf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08fjacb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1at9n07">
+          <text>&gt;50</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zftzv5">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02ok5ou">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09ieyv1">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1k0wq5j">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ifwpys">
+          <text>true</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0y3frqt">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1uq0lfc">
+        <description>Все проверки пройдены</description>
+        <inputEntry id="UnaryTests_0e1owpb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bsq4gw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sv7s6r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17mvij8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v423oa">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xovmke">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_100qlz3">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1y6kpbs">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0g62iko">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1t6aa2l">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kqcaox">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_0k8fyt8">
+      <dmndi:DMNShape id="DMNShape_1mtdds8" dmnElementRef="decision">
+        <dc:Bounds height="80" width="180" x="150" y="150" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

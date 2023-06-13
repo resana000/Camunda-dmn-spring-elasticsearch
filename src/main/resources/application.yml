@@ -1,0 +1,3 @@
+logging.level.org.camunda.bpm: debug
+server:
+  port: 8080
